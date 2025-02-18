@@ -27,7 +27,6 @@ package academic.driver;
                  switch (parts[0]) {
                      case "course-add":
                          if (parts.length == 5) {
-                             // Menambahkan kursus jika belum ada
                              if (courses.stream().noneMatch(c -> c.toString().startsWith(parts[1]))) {
                                  courses.add(new Course(parts[1], parts[2], Integer.parseInt(parts[3]), parts[4]));
                              }
@@ -35,7 +34,6 @@ package academic.driver;
                          break;
                      case "student-add":
                          if (parts.length == 5) {
-                             // Menambahkan mahasiswa jika belum ada
                              if (students.stream().noneMatch(s -> s.toString().startsWith(parts[1]))) {
                                  students.add(new Student(parts[1], parts[2], Integer.parseInt(parts[3]), parts[4]));
                              }
@@ -43,7 +41,6 @@ package academic.driver;
                          break;
                      case "enrollment-add":
                          if (parts.length == 5) {
-                             // Menambahkan pendaftaran jika belum ada
                              if (enrollments.stream().noneMatch(e -> e.toString().contains(parts[1]) && e.toString().contains(parts[2]))) {
                                  enrollments.add(new Enrollment(parts[1], parts[2], parts[3], parts[4]));
                              }
@@ -54,9 +51,6 @@ package academic.driver;
                  }
              }
          }
- 
-         // Print in order: Courses -> Students -> Enrollments
-         // Mengurutkan output sesuai dengan urutan yang diinginkan
          courses.sort((c1, c2) -> c1.toString().compareTo(c2.toString()));
          students.sort((s1, s2) -> s1.toString().compareTo(s2.toString()));
          enrollments.sort((e1, e2) -> e1.toString().compareTo(e2.toString()));
