@@ -52,8 +52,6 @@ package academic.driver;
              }
          }
          courses.sort((c1, c2) -> c1.toString().compareTo(c2.toString()));
-         students.sort((s1, s2) -> s1.toString().compareTo(s2.toString()));
-         enrollments.sort((e1, e2) -> e1.toString().compareTo(e2.toString()));
  
          for (Course course : courses) {
              System.out.println(course);
