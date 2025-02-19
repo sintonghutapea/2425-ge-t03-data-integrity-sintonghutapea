@@ -72,5 +72,6 @@ package academic.driver;
          for (Enrollment enrollment : enrollments) {
              System.out.println(enrollment);
          }
+         scanner.close();
      }
  }
