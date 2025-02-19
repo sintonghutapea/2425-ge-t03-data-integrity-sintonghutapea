@@ -34,22 +34,6 @@ package academic.model;
         return major;
     }
 
-    public void setStudentId(String studentId) {
-        this.studentId = studentId;
-    }
-
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    public void setMajor(String major) {
-        this.major = major;
-    }
-
     @Override
     public String toString() {
         return studentId + "|" + studentName + "|" + year + "|" + major;

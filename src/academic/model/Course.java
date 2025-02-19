@@ -34,22 +34,6 @@ package academic.model;
         return passingGrade;
     }
 
-    public void setCourseCode(String courseCode) {
-        this.courseCode = courseCode;
-    }
-
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
-    }
-
-    public void setCredits(int credits) {
-        this.credits = credits;
-    }
-
-    public void setPassingGrade(String passingGrade) {
-        this.passingGrade = passingGrade;
-    }
-
     @Override
     public String toString() {
         return courseCode + "|" + courseName + "|" + credits + "|" + passingGrade;
