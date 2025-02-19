@@ -27,22 +27,31 @@ package academic.driver;
                  switch (parts[0]) {
                      case "course-add":
                          if (parts.length == 5) {
-                             if (courses.stream().noneMatch(c -> c.toString().startsWith(parts[1]))) {
-                                 courses.add(new Course(parts[1], parts[2], Integer.parseInt(parts[3]), parts[4]));
+                             boolean exists = courses.stream()
+                                 .anyMatch(c -> c.getCourseCode().equals(parts[1]));
+                             if (!exists) {
+                                 Course course = new Course(parts[1], parts[2], Integer.parseInt(parts[3]), parts[4]);
+                                 courses.add(course);
                              }
                          }
                          break;
                      case "student-add":
                          if (parts.length == 5) {
-                             if (students.stream().noneMatch(s -> s.toString().startsWith(parts[1]))) {
-                                 students.add(new Student(parts[1], parts[2], Integer.parseInt(parts[3]), parts[4]));
+                             boolean exists = students.stream()
+                                 .anyMatch(s -> s.getStudentId().equals(parts[1]));
+                             if (!exists) {
+                                 Student student = new Student(parts[1], parts[2], Integer.parseInt(parts[3]), parts[4]);
+                                 students.add(student);
                              }
                          }
                          break;
                      case "enrollment-add":
                          if (parts.length == 5) {
-                             if (enrollments.stream().noneMatch(e -> e.toString().contains(parts[1]) && e.toString().contains(parts[2]))) {
-                                 enrollments.add(new Enrollment(parts[1], parts[2], parts[3], parts[4]));
+                             boolean exists = enrollments.stream()
+                                 .anyMatch(e -> e.getCourseCode().equals(parts[1]) && e.getStudentId().equals(parts[2]));
+                             if (!exists) {
+                                 Enrollment enrollment = new Enrollment(parts[1], parts[2], parts[3], parts[4]);
+                                 enrollments.add(enrollment);
                              }
                          }
                          break;
@@ -51,7 +60,8 @@ package academic.driver;
                  }
              }
          }
-         courses.sort((c1, c2) -> c1.toString().compareTo(c2.toString()));
+ 
+         courses.sort((c1, c2) -> c1.getCourseCode().compareTo(c2.getCourseCode()));
  
          for (Course course : courses) {
              System.out.println(course);
@@ -61,6 +71,6 @@ package academic.driver;
          }
          for (Enrollment enrollment : enrollments) {
              System.out.println(enrollment);
-         } 
+         }
      }
  }

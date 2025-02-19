@@ -20,6 +20,46 @@ package academic.model;
         this.grade = "None";
     }
 
+    public String getCourseCode() {
+        return courseCode;
+    }
+
+    public String getStudentId() {
+        return studentId;
+    }
+
+    public String getAcademicYear() {
+        return academicYear;
+    }
+
+    public String getSemester() {
+        return semester;
+    }
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setCourseCode(String courseCode) {
+        this.courseCode = courseCode;
+    }
+
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
+    }
+
+    public void setAcademicYear(String academicYear) {
+        this.academicYear = academicYear;
+    }
+
+    public void setSemester(String semester) {
+        this.semester = semester;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+
     @Override
     public String toString() {
         return courseCode + "|" + studentId + "|" + academicYear + "|" + semester + "|" + grade;
